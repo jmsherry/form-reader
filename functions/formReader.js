@@ -9,51 +9,52 @@
 // }
 
 exports.handler = async (event, context) => {
+  console.log('event.body', event.body);
   // your server-side functionality
-  const body = JSON.parse(event.body);
-  console.log("🚀 ~ file: formReader.js ~ line 14 ~ body", body);
+//   const body = JSON.parse(event.body);
+//   console.log("🚀 ~ file: formReader.js ~ line 14 ~ body", body);
 
-  let tableRowsHTML = "";
+//   let tableRowsHTML = "";
 
-  for (const [key, value] of Object.entries(body)) {
-    tableRowsHTML += `<tr><th>${key}</th><td>${value}</td></tr>`;
-  }
+//   for (const [key, value] of Object.entries(body)) {
+//     tableRowsHTML += `<tr><th>${key}</th><td>${value}</td></tr>`;
+//   }
 
-  console.log("tableRowsHTML", tableRowsHTML);
+//   console.log("tableRowsHTML", tableRowsHTML);
 
-  const HTML = `
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>Form Data</h1>
-  <table>
-    <thead>
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Value</th>
-      </tr>
-    </thead>
-    <tbody>
-    ${tableRowsHTML}
-    </tbody>
-  </table>
-</body>
-</html>
-  `;
+//   const HTML = `
+//   <!DOCTYPE html>
+// <html lang="en">
+// <head>
+//   <meta charset="UTF-8">
+//   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+//   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//   <title>Document</title>
+// </head>
+// <body>
+//   <h1>Form Data</h1>
+//   <table>
+//     <thead>
+//       <tr>
+//         <th scope="col">Name</th>
+//         <th scope="col">Value</th>
+//       </tr>
+//     </thead>
+//     <tbody>
+//     ${tableRowsHTML}
+//     </tbody>
+//   </table>
+// </body>
+// </html>
+//   `;
 
-  console.log({ HTML });
+//   console.log({ HTML });
 
   return {
     isBase64Encoded: true | false,
     statusCode: 200,
     headers: { "Content-Type": "text/html" },
     multiValueHeaders: {},
-    body: HTML,
+    body: 'HTML',
   };
 };
