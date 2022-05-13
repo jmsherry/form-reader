@@ -31,24 +31,32 @@ exports.handler = async (event, context) => {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-  <h1>Form Data</h1>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Value</th>
-      </tr>
-    </thead>
-    <tbody>
-    ${tableRowsHTML}
-    </tbody>
-  </table>
-  <button id="back" class="btn btn-primary">Go back to your form</button>
-  <script>
-    document.getElementById('back').addEventListener('click', () => {
-      history.back();
-    });
-  </script>
+  <header>
+    <div class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <h1 class="navbar-brand mb-0">Form Data</h1>
+      </div>
+    </div>
+  </header>
+  <main>
+    <table class="table table-striped table-hover table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+      ${tableRowsHTML}
+      </tbody>
+    </table>
+    <button id="back" class="btn btn-primary">Go back to your form</button>
+    <script>
+      document.getElementById('back').addEventListener('click', () => {
+        history.back();
+      });
+    </script>
+  </main>
 </body>
 </html>
   `;
