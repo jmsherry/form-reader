@@ -20,6 +20,9 @@ exports.handler = async (event, context) => {
 
   console.log("tableRowsHTML", tableRowsHTML);
 
+  console.log('event.headers.origin', event.headers.origin);
+  console.log('event.headers.referer', event.headers.referer);
+
   const HTML = `
   <!DOCTYPE html>
   <html lang="en">
@@ -64,7 +67,7 @@ exports.handler = async (event, context) => {
             ${tableRowsHTML}
           </tbody>
         </table>
-        <a href="${event.headers.referrer}" id="back" class="btn btn-primary">Go back to your form</a>
+        <a href="${event.headers.referer}" id="back" class="btn btn-primary">Go back to your form</a>
       </div>
     </main>
   </body>
