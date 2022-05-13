@@ -9,7 +9,7 @@
 // }
 
 exports.handler = async (event, context) => {
-  console.log("event.body", event.body);
+  console.log("event.body", event);
   const params = new URLSearchParams(event.body);
 
   let tableRowsHTML = "";
