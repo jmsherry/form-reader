@@ -8,8 +8,11 @@
 //   "isBase64Encoded": "A boolean flag to indicate if the applicable request payload is Base64-encoded"
 // }
 
+// const qs = require('querystring');
+
 exports.handler = async (event, context) => {
   console.log('event.body', event.body);
+  // const { query } = qs.parse(event.body);
   // your server-side functionality
 //   const body = JSON.parse(event.body);
 //   console.log("🚀 ~ file: formReader.js ~ line 14 ~ body", body);
@@ -51,7 +54,6 @@ exports.handler = async (event, context) => {
 //   console.log({ HTML });
 
   return {
-    isBase64Encoded: true | false,
     statusCode: 200,
     headers: { "Content-Type": "text/html" },
     multiValueHeaders: {},
