@@ -64,14 +64,9 @@ exports.handler = async (event, context) => {
             ${tableRowsHTML}
           </tbody>
         </table>
-        <button id="back" class="btn btn-primary">Go back to your form</button>
+        <a href="${event.headers.referrer}" id="back" class="btn btn-primary">Go back to your form</a>
       </div>
     </main>
-    <script>
-      document.getElementById('back').addEventListener('click', () => {
-        history.back();
-      });
-    </script>
   </body>
   
   </html>
