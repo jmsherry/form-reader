@@ -6,11 +6,76 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Form Reader Instructions</title>
+  <style>
+    .tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+  </style>
 </head>
 
 <body>
   <h1>Form Reader instructions</h1>
-  <p>Todo...</p>
+  <ul>
+    <li>You need to make a <code>POST</code> request</li>
+    <li>The endpoint is at <code
+        class="clickToCopy"><span class="tooltiptext" id="myTooltip">Copy to clipboard</span>https://form-reader.netlify.app/.netlify/functions/formReader</code></li>
+    <li>You can therefore test your forms by setting the form method to POST and the action to that URL (<abbr
+        title="Id Est (latin for 'it is')">i.e.</abbr> <code
+        class="clickToCopy"><span class="tooltiptext" id="myTooltip">Copy to clipboard</span>&lt;form method="POST" action="https://form-reader.netlify.app/.netlify/functions/formReader"&gt;&lt;/form&gt;</code>)
+    </li>
+  </ul>
+
+  <script>
+    /* Get the text field */
+    const copyableElements = document.getElementsByClassName('clickToCopy');
+
+    const copyFn = (e) => {
+      const el = e.target;
+      el.select();
+      el.setSelectionRange(0, 99999); /* For mobile devices */
+
+      navigator.clipboard.writeText(el.value);
+    }
+
+    for (const el of copyableElements) {
+      el.addEventListener('click', copyFn)
+    }
+
+  </script>
 </body>
 
 </html>
